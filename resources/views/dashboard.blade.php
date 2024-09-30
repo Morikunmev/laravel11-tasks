@@ -10,15 +10,30 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h1 class="text-2xl text-purple-800">Bienvenido al gestor de tareas</h1>
-                    @foreach ($tasks as $task)
-                    <p class="mt-4 text-lg text-purple-800">
-                        {{ $task->title }}
-                    </p>
-                    <p>
-                        {{$task->description}}
-                    </p>
 
-                    @endforeach
+                    <table class="min-w-full mt-6 divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Título</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach ($tasks as $task)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $task->title }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $task->description }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-500">Editar</button>
+
+                                <button class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500">Eliminar</button>
+
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
